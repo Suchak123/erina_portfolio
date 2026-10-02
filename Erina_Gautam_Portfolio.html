@@ -11,37 +11,37 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500;0,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root, [data-theme="light"]{
-    --bg:#F3EDE3;
+    --bg:#EFEEEA;
     --surface:#FFFFFF;
-    --surface-2:#FBF7F0;
-    --ink:#1C1526;
-    --ink-soft:#6A6072;
-    --line:rgba(28,21,38,.13);
-    --line-2:rgba(28,21,38,.07);
-    --coral:#FA502B;
-    --violet:#6A47F5;
-    --gold:#E8960C;
-    --teal:#0E9E7E;
-    --pink:#E93C93;
-    --logo-panel:#171019;
-    --shadow:rgba(28,21,38,.13);
+    --surface-2:#F6F5F0;
+    --ink:#273F4F;
+    --ink-soft:#647581;
+    --line:rgba(39,63,79,.15);
+    --line-2:rgba(39,63,79,.07);
+    --coral:#FE7743;
+    --violet:#273F4F;
+    --gold:#E0602A;
+    --teal:#3A5A6E;
+    --pink:#FE7743;
+    --logo-panel:#273F4F;
+    --shadow:rgba(39,63,79,.16);
     --hero-glow:.5;
   }
   [data-theme="dark"]{
-    --bg:#130F1A;
-    --surface:#1E1726;
-    --surface-2:#261D31;
-    --ink:#F6EFE7;
-    --ink-soft:#A99FB4;
-    --line:rgba(246,239,231,.15);
-    --line-2:rgba(246,239,231,.08);
-    --coral:#FF6E4E;
-    --violet:#9B7DFF;
-    --gold:#FFC24B;
-    --teal:#2DD2B0;
-    --pink:#FF6FB4;
-    --logo-panel:#0C0810;
-    --shadow:rgba(0,0,0,.5);
+    --bg:#12202A;
+    --surface:#1C2E3A;
+    --surface-2:#243B49;
+    --ink:#EFEEEA;
+    --ink-soft:#9BAAB4;
+    --line:rgba(239,238,234,.15);
+    --line-2:rgba(239,238,234,.08);
+    --coral:#FF8A5C;
+    --violet:#7DA6BD;
+    --gold:#FF9455;
+    --teal:#6F97AD;
+    --pink:#FF8A5C;
+    --logo-panel:#0C1720;
+    --shadow:rgba(0,0,0,.55);
     --hero-glow:.85;
   }
 
@@ -128,7 +128,6 @@
   .hero-name .hl{
     color:var(--coral);position:relative;display:inline-block;
   }
-  .hero-name .hl::after{content:"";position:absolute;left:-.02em;right:-.02em;bottom:.06em;height:.14em;background:var(--gold);z-index:-1;border-radius:2px;}
   .hero-role{
     font-family:'Fraunces',serif;font-style:italic;font-weight:500;
     font-size:clamp(21px,2.7vw,32px);line-height:1.3;color:var(--ink);
@@ -151,7 +150,7 @@
   .portrait__img img{width:100%;height:auto;display:block;}
   .badge{position:absolute;z-index:2;display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:13.5px;padding:10px 15px;border-radius:999px;box-shadow:0 12px 28px -12px var(--shadow);}
   .badge.b1{top:22px;left:-26px;background:var(--coral);color:#fff;}
-  .badge.b2{bottom:26px;right:-22px;background:var(--gold);color:#221a06;}
+  .badge.b2{bottom:26px;right:-22px;background:var(--gold);color:#FFFFFF;}
   .badge .live{width:9px;height:9px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.35);}
   @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-9px);}}
   .badge.b1{animation:floaty 4.5s ease-in-out infinite;}
@@ -189,8 +188,10 @@
   .skill-group h4{margin:0 0 16px;font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--c);display:inline-flex;align-items:center;gap:8px;}
   .skill-group h4::before{content:"";width:26px;height:3px;border-radius:3px;background:var(--c);}
   .tags{display:flex;flex-wrap:wrap;gap:8px;}
-  .tags span{font-size:13.5px;font-weight:500;padding:7px 13px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--ink);transition:transform .12s,border-color .2s,color .2s;}
+  .tags span{font-size:13.5px;font-weight:500;padding:7px 13px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--ink);transition:transform .12s,border-color .2s,color .2s,background .2s;}
   .tags span:hover{border-color:var(--c);color:var(--c);transform:translateY(-2px);}
+  .tags span.feat{background:color-mix(in srgb,var(--c) 14%,var(--surface));border-color:color-mix(in srgb,var(--c) 42%,transparent);color:var(--c);font-weight:600;}
+  .tags span.feat:hover{background:color-mix(in srgb,var(--c) 20%,var(--surface));}
 
   /* ---------- experience ---------- */
   .exp-list{display:flex;flex-direction:column;gap:20px;}
@@ -227,14 +228,22 @@
   .work-kv div{font-size:12.5px;color:var(--ink-soft);border:1px solid var(--line);border-radius:12px;padding:8px 13px;}
   .work-kv b{display:block;color:var(--ink);font-weight:600;font-size:14.5px;margin-top:2px;}
   .work-desc{font-size:16.5px;line-height:1.7;color:var(--ink-soft);margin:0 0 22px;}
-  .work-stat{display:flex;align-items:baseline;gap:14px;margin-top:auto;}
+  .work-stat{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;margin-top:auto;}
   .work-stat .n{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(38px,5vw,58px);letter-spacing:-.03em;line-height:.9;color:var(--c);}
-  .work-stat .l{font-size:14px;color:var(--ink-soft);line-height:1.35;}
-  .work-media{grid-area:media;position:relative;background:var(--surface-2);display:grid;gap:3px;min-height:340px;overflow:hidden;}
-  .work-media.g3{grid-template-columns:1fr 1fr;grid-template-rows:1.5fr 1fr;}
-  .work-media.g3 .full{grid-column:1/3;}
-  .work-media.g2{grid-template-columns:1fr;grid-template-rows:1fr 1fr;}
-  .work-media img{width:100%;height:100%;object-fit:cover;min-height:0;min-width:0;}
+  .work-stat .l{font-size:14px;color:var(--ink-soft);line-height:1.35;text-align:center;}
+  .work-media{grid-area:media;position:relative;align-self:center;background:var(--surface-2);display:grid;gap:8px;padding:12px;overflow:hidden;}
+  /* square poster creatives sit in square cells — shown in full, never cropped */
+  .work-media.sq4{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;aspect-ratio:1/1;}
+  .work-media.sq2{grid-template-columns:1fr;grid-auto-flow:row;align-self:stretch;place-items:center;}
+  .work-media.sq2 img{width:auto;height:auto;max-width:100%;max-height:100%;}
+  .work.center-copy .work-copy{text-align:center;align-items:center;justify-content:center;}
+  .work.center-copy .work-kv{justify-content:center;}
+  .work.center-copy .work-stat{align-items:center;}
+  /* landscape event photos */
+  .work-media.ph3{grid-template-columns:1fr 1fr;grid-template-rows:1.35fr 1fr;aspect-ratio:1/1;}
+  .work-media.ph3 .full{grid-column:1/3;}
+  .work-media img{width:100%;height:100%;object-fit:cover;min-height:0;min-width:0;border-radius:12px;}
+  @media(max-width:780px){.work-media{align-self:auto;}}
   /* Yirifi metric board */
   .metric-board{grid-area:media;background:var(--c);display:grid;grid-template-columns:1fr 1fr;color:#fff;}
   .metric-board .m{padding:clamp(20px,2.6vw,34px);border-right:1px solid rgba(255,255,255,.16);border-bottom:1px solid rgba(255,255,255,.16);}
@@ -245,45 +254,50 @@
   @media(max-width:780px){.work,.work.flip{grid-template-columns:1fr;grid-template-areas:"copy" "media" "vid";}}
 
   /* ---------- brands ---------- */
-  .brands-panel{background:#F1ECE1;border:1px solid rgba(28,21,38,.08);border-radius:30px;padding:clamp(34px,5vw,60px);color:#1C1526;box-shadow:0 30px 70px -50px var(--shadow);}
-  .brands-panel .eyebrow{color:#B0700C;background:color-mix(in srgb,#E8960C 16%,transparent);}
-  .brands-panel .sec-title{color:#1C1526;}
-  .brands-panel .sec-intro{color:#6A6072;}
-  .brand-grid{margin-top:clamp(28px,4vw,44px);display:flex;flex-wrap:wrap;justify-content:center;gap:10px;}
-  .brand-cell{flex:0 1 150px;background:transparent;border-radius:14px;aspect-ratio:5/3;display:flex;align-items:center;justify-content:center;padding:14px;}
+  .brands-panel{background:#FFFFFF;border-radius:30px;padding:clamp(34px,5vw,60px);color:#273F4F;box-shadow:0 30px 70px -50px var(--shadow);}
+  .brands-panel .eyebrow{color:#C24E1E;background:color-mix(in srgb,#FE7743 18%,transparent);}
+  .brands-panel .sec-title{color:#273F4F;}
+  .brands-panel .sec-intro{color:#647581;}
+  .brand-grid{margin-top:clamp(28px,4vw,44px);display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(10px,2vw,22px);}
+  .brand-cell{flex:0 1 150px;aspect-ratio:5/3;display:flex;align-items:center;justify-content:center;padding:12px;}
   .brand-cell img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;transition:transform .24s cubic-bezier(.2,.7,.2,1);}
-  .brand-cell:hover img{transform:scale(1.28);}
-  /* dark theme: dark panel, white logos (except self-contained colored tiles) */
-  [data-theme="dark"] .brands-panel{background:var(--logo-panel);border-color:rgba(255,255,255,.09);color:#f4f2ec;box-shadow:0 30px 70px -50px rgba(0,0,0,.6);}
+  .brand-cell:hover img{transform:scale(1.1);}
+  /* dark theme: dark panel; logos sit on clean tiles so mixed-background artwork stays readable */
+  [data-theme="dark"] .brands-panel{background:var(--logo-panel);color:#EFEEEA;box-shadow:0 30px 70px -50px rgba(0,0,0,.6);}
   [data-theme="dark"] .brands-panel .sec-title{color:#fff;}
-  [data-theme="dark"] .brands-panel .sec-intro{color:#b7b2a5;}
+  [data-theme="dark"] .brands-panel .sec-intro{color:#B7B2A5;}
   [data-theme="dark"] .brands-panel .eyebrow{color:var(--gold);background:color-mix(in srgb,var(--gold) 20%,transparent);}
-  [data-theme="dark"] .brand-cell{background:#fff;box-shadow:0 8px 20px -14px rgba(0,0,0,.55);}
+  [data-theme="dark"] .brand-cell{background:#fff;border-radius:14px;box-shadow:0 8px 22px -14px rgba(0,0,0,.6);}
 
   /* ---------- work card video ---------- */
-  .work-video{grid-area:vid;background:#0d0910;border-top:1px solid var(--line-2);position:relative;}
-  .work-video video{display:block;width:100%;max-height:560px;object-fit:contain;background:#0d0910;}
+  .work-video{grid-area:vid;background:#000000;border-top:1px solid var(--line-2);position:relative;}
+  .work-video video{display:block;width:100%;max-height:560px;object-fit:contain;background:#000000;}
   .work-video .vcap{position:absolute;top:14px;left:16px;z-index:2;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#fff;background:color-mix(in srgb,var(--c) 88%,#000);padding:6px 12px;border-radius:999px;pointer-events:none;}
 
   /* ---------- highlighted works ---------- */
-  .hl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;}
-  .hl-item{margin:0;position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/5;background:#0d0910;border:1px solid var(--line-2);box-shadow:0 18px 40px -30px var(--shadow);}
+  .hl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;}
+  .hl-item{margin:0;position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/5;background:#000000;border:1px solid var(--line-2);box-shadow:0 18px 40px -30px var(--shadow);}
   .hl-item img,.hl-item video{width:100%;height:100%;display:block;}
-  .hl-item img{object-fit:cover;}
-  .hl-item.vid{background:#0d0910;}
+  .hl-item img{object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.2,1);}
+  .hl-item:not(.vid){cursor:zoom-in;}
+  .hl-item:not(.vid):hover img{transform:scale(1.05);}
+  .hl-item.vid{background:#000000;}
   .hl-item.vid video{object-fit:contain;}
   .hl-item figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;display:flex;align-items:center;gap:8px;padding:14px 16px;font-size:13px;font-weight:600;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.72));pointer-events:none;}
   .hl-item .pill{font-size:10px;letter-spacing:.06em;text-transform:uppercase;background:var(--c);color:#fff;padding:3px 8px;border-radius:999px;}
-  .hl-item.vid figcaption{background:none;top:12px;bottom:auto;}
   .hl-item.vid{cursor:pointer;}
   .hl-item .playcue{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;pointer-events:none;transition:opacity .2s;}
   .hl-item .playcue::before{content:"";width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.16);backdrop-filter:blur(4px);border:1.5px solid rgba(255,255,255,.6);}
   .hl-item .playcue::after{content:"";position:absolute;width:0;height:0;border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent #fff;margin-left:4px;}
+  .hl-item .zoomcue{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.9);z-index:1;display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:rgba(0,0,0,.34);backdrop-filter:blur(4px);border:1.5px solid rgba(255,255,255,.7);pointer-events:none;opacity:0;transition:opacity .22s,transform .22s;}
+  .hl-item:not(.vid):hover .zoomcue,.hl-item:not(.vid):focus-visible .zoomcue{opacity:1;transform:translate(-50%,-50%) scale(1);}
+  .hl-item .zoomcue svg{width:24px;height:24px;display:block;}
   /* theater / lightbox */
   .theater{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:clamp(16px,4vw,48px);background:#0a070e;background:rgba(10,7,14,.985);backdrop-filter:blur(14px);opacity:0;transition:opacity .25s;}
   .theater.open{display:flex;opacity:1;}
   .theater-stage{position:relative;display:flex;align-items:center;justify-content:center;}
-  .theater-stage video{max-width:min(1200px,94vw);max-height:86vh;width:auto;height:auto;border-radius:14px;box-shadow:0 40px 100px rgba(0,0,0,.6);background:#000;display:block;}
+  .theater-stage video,.theater-stage img{max-width:min(1200px,94vw);max-height:86vh;width:auto;height:auto;border-radius:14px;box-shadow:0 40px 100px rgba(0,0,0,.6);background:#000;display:block;}
+  .theater-stage img[hidden]{display:none;}
   .theater-close{position:absolute;top:-18px;right:-18px;width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;background:#fff;color:#16140f;font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.4);transition:transform .15s;}
   .theater-close:hover{transform:scale(1.08);}
   @media(max-width:560px){.theater-close{top:-14px;right:-6px;width:40px;height:40px;}}
@@ -303,7 +317,7 @@
   @media(max-width:720px){.perf{grid-template-columns:1fr;}}
 
   /* ---------- contact ---------- */
-  .cta{position:relative;overflow:hidden;border-radius:34px;background:#181022;color:#F6EFE7;padding:clamp(44px,7vw,96px);}
+  .cta{position:relative;overflow:hidden;border-radius:34px;background:#22333F;color:#EFEEEA;padding:clamp(44px,7vw,96px);}
   .cta-glow{position:absolute;inset:0;pointer-events:none;opacity:.6;}
   .cta-glow span{position:absolute;border-radius:50%;filter:blur(70px);}
   .cta-glow .c1{width:340px;height:340px;background:var(--coral);top:-80px;right:-40px;opacity:.55;}
@@ -312,7 +326,7 @@
   .cta .eyebrow{color:var(--gold);background:color-mix(in srgb,var(--gold) 22%,transparent);}
   .cta-quote{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:clamp(28px,4.4vw,52px);line-height:1.08;letter-spacing:-.02em;margin:22px 0 20px;}
   .cta-quote .u{background:linear-gradient(transparent 62%,var(--coral) 62%,var(--coral) 92%,transparent 92%);}
-  .cta-sub{font-size:17.5px;line-height:1.7;color:rgba(246,239,231,.82);max-width:52ch;margin:0 0 14px;}
+  .cta-sub{font-size:17.5px;line-height:1.7;color:rgba(239,238,234,.82);max-width:52ch;margin:0 0 14px;}
   .cta-sub b{color:#fff;font-weight:600;}
   .cta-pers{font-family:'Fraunces',serif;font-style:italic;font-size:16px;color:var(--gold);margin:0 0 30px;}
   .contact-links{display:flex;flex-direction:column;gap:10px;}
@@ -389,7 +403,7 @@
       <div class="hero-l">
         <span class="eyebrow" style="--c:var(--coral)">Content &amp; Brand Strategist</span>
         <h1 class="hero-name">Erina <span class="hl">Gautam</span></h1>
-        <p class="hero-role">I pull the keyword report — and still write the caption that stops the scroll.</p>
+        <p class="hero-role">Strategy that's actually followed by content people click on.</p>
         <p class="hero-sub">Based in Kathmandu, working remotely across time zones. Four years pairing SEO and data with actual storytelling, for 25+ brands.</p>
         <div class="hero-cta">
           <a class="btn btn-fill" href="#contact">Let's work together →</a>
@@ -425,7 +439,8 @@
     <div class="wrap">
       <div class="sec-head reveal">
         <span class="eyebrow">About</span>
-        <h2 class="sec-title">The person in the gap between strategy and execution.</h2>
+        <h2 class="sec-title">Goal-driven strategy, not good-looking strategy.</h2>
+        <p class="sec-intro">Planning to execution, end to end. That's how I know what actually moves the needle.</p>
       </div>
       <div class="about-grid">
         <div class="about-photo reveal">
@@ -433,24 +448,23 @@
           <div class="tag">Kathmandu, Nepal — working remotely with teams across time zones.</div>
         </div>
         <div class="about-body reveal">
-          <p class="lead">Give me a keyword report and a blank content calendar, and I'll have opinions about both within the hour. I work at the intersection of <b>SEO, social strategy, and brand communication</b>.</p>
-          <p>Four years moving between agency and in-house seats — close enough to strategy to set the direction, close enough to execution to write the caption myself. At <strong>Yirifi.ai</strong> I worked fully remote for a Singapore team, scaling LinkedIn audience by <strong>300%</strong> and engineering AI-powered workflow automation to keep output moving without a daily hand-holding call. At <strong>Pixel Creatives</strong> I directed omnichannel marketing for <strong>25+ brands</strong>.</p>
-          <p class="pull">I'm most useful in the gap between strategy and execution — the person who sets the content calendar and still knows why a post isn't landing.</p>
+          <p class="lead">Give me a crowded market, and I'll find what makes your brand the obvious pick. I work at the intersection of <b>SEO, social strategy, and brand communication</b>.</p>
+          <p>Four years between agency and in-house work, enough to know both playbooks: close enough to strategy to set the direction, close enough to execution to write the caption myself. At <strong>Yirifi.ai</strong>, I worked fully remote for a Singapore-based team, scaling LinkedIn audience by <strong>300%</strong> and engineering AI-powered workflow automation that kept output moving on its own. At <strong>Pixel Creatives</strong>, I directed positioning and content across <strong>25+ brands</strong> at once, each one needing to sound like itself, not like the competitor next to it.</p>
           <p>I hold a BBA in Marketing from Westcliff University, and I'm looking for my next <strong>remote</strong> role as a Social Media Content Strategist or Digital Marketing Account Manager.</p>
         </div>
       </div>
       <div class="skills">
         <div class="skill-group reveal" style="--c:var(--coral)">
-          <h4>SEO &amp; Growth</h4>
-          <div class="tags"><span>SEO strategy</span><span>Technical SEO</span><span>Keyword research</span><span>SERP analysis</span><span>On-page optimization</span><span>Organic growth</span><span>SEO analytics</span></div>
+          <h4>Brand &amp; Content</h4>
+          <div class="tags"><span class="feat">Social media strategy &amp; management</span><span class="feat">Brand positioning</span><span class="feat">Content strategy</span><span class="feat">Editorial planning</span><span>Omnichannel marketing</span><span>Campaign management</span></div>
         </div>
         <div class="skill-group reveal" style="--c:var(--violet)">
-          <h4>Content &amp; Marketing</h4>
-          <div class="tags"><span>Content strategy</span><span>Editorial planning</span><span>Omnichannel marketing</span><span>Brand positioning</span><span>Lead generation</span><span>Campaign management</span><span>AI workflow automation</span><span>Prompt engineering</span></div>
+          <h4>SEO &amp; Growth</h4>
+          <div class="tags"><span class="feat">SEO strategy</span><span class="feat">Keyword research</span><span>Technical SEO</span><span>SERP analysis</span><span>On-page optimization</span><span>Organic growth</span><span>SEO analytics</span></div>
         </div>
         <div class="skill-group reveal" style="--c:var(--teal)">
           <h4>Analytics &amp; Tools</h4>
-          <div class="tags"><span>KPI tracking</span><span>ROI analysis</span><span>Search Console</span><span>Google Analytics</span><span>Zoho Social</span><span>Canva</span><span>Notion</span><span>Descript</span><span>ElevenLabs</span><span>Claude Code</span></div>
+          <div class="tags"><span>KPI tracking</span><span>ROI analysis</span><span>Search Console</span><span>Google Analytics</span><span>Zoho Social</span><span>Canva</span><span>Notion</span><span>Descript</span><span>ElevenLabs</span><span>Claude Code</span><span>AI workflow automation</span><span>Prompt engineering</span></div>
         </div>
       </div>
     </div>
@@ -461,7 +475,7 @@
     <div class="wrap">
       <div class="sec-head reveal" style="--c:var(--teal)">
         <span class="eyebrow">Experience</span>
-        <h2 class="sec-title">Five roles, one throughline: content that performs.</h2>
+        <h2 class="sec-title">I'd rather show you than tell you.</h2>
       </div>
       <div class="exp-list">
         <article class="exp reveal" style="--c:var(--coral)">
@@ -477,26 +491,15 @@
           </div>
         </article>
         <article class="exp reveal" style="--c:var(--violet)">
-          <div><div class="exp-when">2024 — 2025</div><div class="exp-loc">Lalitpur</div></div>
+          <div><div class="exp-when">2023 — 2025</div><div class="exp-loc">Lalitpur</div></div>
           <div>
             <h3 class="exp-role">Content &amp; Communication Lead</h3>
-            <p class="exp-org"><b>Pixel Creatives</b> — 25+ client brands</p>
+            <p class="exp-org"><b>Pixel Creatives</b> — 25+ client brands · grew from Social Media Executive</p>
             <ul>
               <li>Directed omnichannel marketing strategy for 25+ client brands, aligning content, design, and client servicing.</li>
               <li>Owned brand acquisition and retention pipelines as primary contact for high-value accounts.</li>
+              <li>Managed 10+ brand accounts simultaneously, building structured content calendars and scalable publishing systems.</li>
               <li>Led a cross-functional team and optimized workflows, reducing production bottlenecks.</li>
-            </ul>
-          </div>
-        </article>
-        <article class="exp reveal" style="--c:var(--gold)">
-          <div><div class="exp-when">2023 — 2024</div><div class="exp-loc">Lalitpur</div></div>
-          <div>
-            <h3 class="exp-role">Social Media Executive</h3>
-            <p class="exp-org"><b>Pixel Creatives</b> — 10+ accounts</p>
-            <ul>
-              <li>Managed 10+ brand accounts simultaneously, building structured content calendars.</li>
-              <li>Built scalable publishing systems for consistent multi-platform presence.</li>
-              <li>Collaborated on multimedia campaigns that boosted engagement.</li>
             </ul>
           </div>
         </article>
@@ -540,16 +543,16 @@
           <div class="work-copy">
             <div class="num">01 / Yirifi.ai</div>
             <p class="work-eyebrow">Remote SEO &amp; content strategy for a Singapore-based team</p>
-            <h3 class="work-title">Rebuilding the content engine around search.</h3>
-            <div class="work-kv"><div>Objective<b>Scalable organic growth</b></div><div>Setup<b>Remote, cross-timezone</b></div></div>
-            <p class="work-desc">I rebuilt Yirifi's content engine around keyword and SERP data — turning LinkedIn into the company's strongest organic channel without a single in-person meeting. The role stretched past SEO: news pieces, infographics, and scripted podcast episodes, with an AI-assisted toolkit keeping output moving across time zones.</p>
-            <div class="work-stat"><span class="n">+300%</span><span class="l">LinkedIn audience growth,<br>SERP-driven &amp; AI-assisted</span></div>
+            <h3 class="work-title">The noise was missing a value angle. We found it.</h3>
+            <div class="work-kv"><div>Objective<b>Authority &amp; audience trust</b></div><div>Setup<b>Remote, cross-timezone</b></div></div>
+            <p class="work-desc">Web3 content is loud with hype: price predictions, trading calls, the same noise everywhere. We went the other way — a daily roundup covering regulation, policy, and governance, the institutional side nobody else in the niche was covering. All of it organic. Other authority figures in the space started engaging back, which is how we knew it was working. Once the format proved out, I automated the research, selection, and publishing — then did the same for the infographics that followed.</p>
+            <div class="work-stat"><span class="n">+300%</span><span class="l">LinkedIn growth,<br>fully organic</span></div>
           </div>
           <div class="metric-board">
-            <div class="m"><b>+300%</b><span>LinkedIn audience growth</span></div>
-            <div class="m"><b>SERP</b><span>data-driven editorial calendar</span></div>
-            <div class="m"><b>AI-built</b><span>content workflow automation</span></div>
-            <div class="m"><b>End-to-end</b><span>keyword &amp; SERP research</span></div>
+            <div class="m"><b>+300%</b><span>LinkedIn growth, fully organic</span></div>
+            <div class="m"><b>Daily</b><span>regulation &amp; policy roundup</span></div>
+            <div class="m"><b>Keyword-led</b><span>research feeding a niche no one else targeted</span></div>
+            <div class="m"><b>Automated</b><span>research to publishing, end-to-end</span></div>
           </div>
         </article>
 
@@ -557,14 +560,15 @@
           <div class="work-copy">
             <div class="num">02 / Only in Bosch</div>
             <p class="work-eyebrow">Paid social campaign for Pixel Creatives</p>
-            <h3 class="work-title">Justifying a premium price.</h3>
-            <div class="work-kv"><div>Objective<b>Premium positioning</b></div><div>Audience<b>Affluent buyers</b></div></div>
-            <p class="work-desc">Bosch didn't need more awareness — it needed to justify a premium price to an audience that could easily buy cheaper. I spotlighted features found only in Bosch products, across washers, refrigerators, and coolers, with messaging tuned to each product's pain points.</p>
+            <h3 class="work-title">Showing the value.</h3>
+            <div class="work-kv"><div>Objective<b>Brand awareness → preference</b></div><div>Audience<b>Affluent buyers</b></div></div>
+            <p class="work-desc">Bosch's price wasn't the problem — people just didn't know what it was paying for. I built the campaign around what only Bosch had, like anti-wrinkle and anti-vibration tech, under one simple line: "It's a Bosch."</p>
             <div class="work-stat"><span class="n">+28.4%</span><span class="l">increase in reach<br>from targeted ads</span></div>
           </div>
-          <div class="work-media g3">
-            <img class="full" src="assets/work/bosch-1.jpg" alt="Only in Bosch — twin washing machines campaign creative">
+          <div class="work-media sq4">
+            <img src="assets/work/bosch-1.jpg" alt="Only in Bosch — twin washing machines campaign creative">
             <img src="assets/work/bosch-2.jpg" alt="Only in Bosch — refrigerator campaign creative">
+            <img src="assets/work/bosch-4.jpg" alt="Only in Bosch — smart convenience washing machine creative">
             <img src="assets/work/bosch-3.jpg" alt="Only in Bosch — combo offer campaign creative">
           </div>
         </article>
@@ -573,12 +577,12 @@
           <div class="work-copy">
             <div class="num">03 / Realme Fanfest</div>
             <p class="work-eyebrow">On-ground activation for Pixel Creatives</p>
-            <h3 class="work-title">Showing up in person for a younger crowd.</h3>
-            <div class="work-kv"><div>Objective<b>Reach a younger audience</b></div><div>Format<b>Live fan festival</b></div></div>
-            <p class="work-desc">A product launch alone wasn't going to win Realme a younger audience — they needed to show up in person. I concepted Fanfest to bring that audience on-site: live performances, photo moments, and interactive brand activations built around the launch.</p>
+            <h3 class="work-title">Nobody leaves the house for an ad.</h3>
+            <div class="work-kv"><div>Objective<b>Reach Nepal's gaming youth</b></div><div>Format<b>Live fan festival</b></div></div>
+            <p class="work-desc">Realme was one of my main accounts at Pixel Creatives — event strategy, social, and paid ads, the whole time I was there. Fanfest was the biggest piece of it: Realme was moving from budget phones to gaming, and I conceptualized and planned the event to get that younger crowd in the room. I also worked directly with their Nepal brand ambassador on shoots and video — and obviously, turned it into content too.</p>
             <div class="work-stat"><span class="n">2,000+</span><span class="l">walk-ins engaging<br>directly with the brand</span></div>
           </div>
-          <div class="work-media g3">
+          <div class="work-media ph3">
             <img class="full" src="assets/work/realme-2.jpg" alt="Realme Fanfest crowd with hands raised">
             <img src="assets/work/realme-1.jpg" alt="Realme Fanfest selfie moment with the crowd">
             <img src="assets/work/realme-3.jpg" alt="Realme Fanfest live stage performance">
@@ -589,19 +593,18 @@
           </div>
         </article>
 
-        <article class="work flip reveal" style="--c:var(--teal)">
+        <article class="work flip reveal center-copy" style="--c:var(--teal)">
           <div class="work-copy">
             <div class="num">04 / Dynamic Technosoft</div>
             <p class="work-eyebrow">Brand &amp; communication for Dynamic Technosoft</p>
-            <h3 class="work-title">Making ERP feel approachable.</h3>
-            <div class="work-kv"><div>Objective<b>Strengthen market trust</b></div><div>Scope<b>Full-funnel comms</b></div></div>
-            <p class="work-desc">ERP software is a hard sell — dense, technical, rarely exciting. My scope ran from social handling and copywriting to testimonial shoots and tutorial videos, making three product lines — Academic ERP, Accounting ERP, and POS — feel approachable to a trust-driven audience.</p>
-            <div class="work-stat"><span class="n">3 lines</span><span class="l">brought to life across<br>the full funnel</span></div>
+            <h3 class="work-title">Features were the problem.</h3>
+            <div class="work-kv"><div>Objective<b>Win decision-makers in a crowded market</b></div><div>Audience<b>School principals &amp; institutional buyers</b></div></div>
+            <p class="work-desc">Listing features wasn't landing — it didn't match how principals actually thought about the problem. So I wrote around what the software fixed for them instead, across Academic ERP and their Accounting Solution. I also handled testimonials and tutorial videos for both.</p>
+            <div class="work-stat"><span class="n">Full-funnel</span><span class="l">copy, testimonials<br>&amp; tutorial videos</span></div>
           </div>
-          <div class="work-media g3">
-            <img class="full" src="assets/work/dynamic-1.jpg" alt="Dynamic Technosoft festive campaign creative">
+          <div class="work-media sq2">
+            <img src="assets/work/dynamic-1.jpg" alt="Dynamic Technosoft festive campaign creative">
             <img src="assets/work/dynamic-2.jpg" alt="Dynamic Academic ERP — Empower your team creative">
-            <img src="assets/work/dynamic-3.jpg" alt="Dynamic ERP — playful April campaign creative">
           </div>
           <div class="work-video">
             <span class="vcap">▶ Brand reel</span>
@@ -618,17 +621,20 @@
     <div class="wrap">
       <div class="sec-head reveal" style="--c:var(--violet)">
         <span class="eyebrow">Highlighted works</span>
-        <h2 class="sec-title">A reel of favourites.</h2>
-        <p class="sec-intro">Standout creatives and short-form video from across the brands — the posts, edits, and campaigns worth pulling out of the archive.</p>
+        <h2 class="sec-title">A few favourites.</h2>
+        <p class="sec-intro">A handful of pieces, across a few different brands.</p>
       </div>
       <div class="hl-grid reveal">
-        <figure class="hl-item" style="--c:var(--gold)"><img src="assets/hl/hl-kantipur.jpg" alt="Kantipur Coffee — Inviting you to your coffee home creative" loading="lazy"><figcaption><span class="pill">Kantipur Coffee</span></figcaption></figure>
+        <figure class="hl-item" style="--c:var(--gold)" role="button" tabindex="0" aria-label="View Kantipur Coffee creative full size"><img src="assets/hl/hl-kantipur.jpg" alt="Kantipur Coffee — Inviting you to your coffee home creative" loading="lazy"><span class="zoomcue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></span><figcaption><span class="pill">Kantipur Coffee</span></figcaption></figure>
         <figure class="hl-item vid" style="--c:var(--coral)" role="button" tabindex="0" aria-label="Play short-form reel in theater mode"><video src="assets/vid/hl-1.mp4" preload="metadata" muted playsinline></video><span class="playcue" aria-hidden="true"></span><figcaption><span class="pill">Short-form reel</span></figcaption></figure>
-        <figure class="hl-item" style="--c:var(--teal)"><img src="assets/hl/hl-realme-narzo.jpg" alt="Realme Narzo — 12GB RAM launch creative" loading="lazy"><figcaption><span class="pill">Realme Narzo</span></figcaption></figure>
-        <figure class="hl-item" style="--c:var(--coral)"><img src="assets/hl/hl-reboost.jpg" alt="Reboost Energy Drink — Slim Can creative" loading="lazy"><figcaption><span class="pill">Reboost</span></figcaption></figure>
+        <figure class="hl-item" style="--c:var(--teal)" role="button" tabindex="0" aria-label="View Realme Narzo creative full size"><img src="assets/hl/hl-realme-narzo.jpg" alt="Realme Narzo — 12GB RAM launch creative" loading="lazy"><span class="zoomcue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></span><figcaption><span class="pill">Realme Narzo</span></figcaption></figure>
+        <figure class="hl-item" style="--c:var(--coral)" role="button" tabindex="0" aria-label="View Reboost creative full size"><img src="assets/hl/hl-reboost.jpg" alt="Reboost Energy Drink — Slim Can creative" loading="lazy"><span class="zoomcue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></span><figcaption><span class="pill">Reboost</span></figcaption></figure>
         <figure class="hl-item vid" style="--c:var(--violet)" role="button" tabindex="0" aria-label="Play campaign edit in theater mode"><video src="assets/vid/hl-2.mp4" preload="metadata" muted playsinline></video><span class="playcue" aria-hidden="true"></span><figcaption><span class="pill">Campaign edit</span></figcaption></figure>
-        <figure class="hl-item" style="--c:var(--pink)"><img src="assets/hl/hl-konka.jpg" alt="Konka Air Cooler creative" loading="lazy"><figcaption><span class="pill">Konka</span></figcaption></figure>
+        <figure class="hl-item" style="--c:var(--pink)" role="button" tabindex="0" aria-label="View Konka creative full size"><img src="assets/hl/hl-konka.jpg" alt="Konka Air Cooler creative" loading="lazy"><span class="zoomcue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></span><figcaption><span class="pill">Konka</span></figcaption></figure>
         <figure class="hl-item vid" style="--c:var(--gold)" role="button" tabindex="0" aria-label="Play short-form reel in theater mode"><video src="assets/vid/hl-3.mp4" preload="metadata" muted playsinline></video><span class="playcue" aria-hidden="true"></span><figcaption><span class="pill">Short-form reel</span></figcaption></figure>
+        <figure class="hl-item" style="--c:var(--coral)" role="button" tabindex="0" aria-label="View Bosch creative full size"><img src="assets/work/bosch-4.jpg" alt="Only in Bosch — smart convenience washing machine creative" loading="lazy"><span class="zoomcue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></span><figcaption><span class="pill">Bosch</span></figcaption></figure>
+        <figure class="hl-item" style="--c:var(--teal)" role="button" tabindex="0" aria-label="View Dynamic Technosoft creative full size"><img src="assets/work/dynamic-4.jpg" alt="Dynamic Academic ERP — streamlined operations creative" loading="lazy"><span class="zoomcue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></span><figcaption><span class="pill">Dynamic Technosoft</span></figcaption></figure>
+        <figure class="hl-item" style="--c:var(--gold)" role="button" tabindex="0" aria-label="View Realme Fanfest photo full size"><img src="assets/work/realme-3.jpg" alt="Realme Fanfest live stage performance" loading="lazy"><span class="zoomcue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></span><figcaption><span class="pill">Realme Fanfest</span></figcaption></figure>
       </div>
     </div>
   </section>
@@ -641,32 +647,32 @@
         <h2 class="sec-title">26 brands, five industries.</h2>
         <p class="sec-intro">Across agency and in-house work — appliances, tech, FMCG, education, and more.</p>
         <div class="brand-grid">
-          <div class="brand-cell" title="Bosch"><img src="assets/brands/00-bosch.png" alt="Bosch logo" loading="lazy"></div>
-          <div class="brand-cell" title="Realme"><img src="assets/brands/01-realme.png" alt="Realme logo" loading="lazy"></div>
-          <div class="brand-cell" title="Konka"><img src="assets/brands/02-konka.png" alt="Konka logo" loading="lazy"></div>
-          <div class="brand-cell has-bg" title="Chatime"><img src="assets/brands/03-chatime.png" alt="Chatime logo" loading="lazy"></div>
-          <div class="brand-cell" title="Samriddhi Steels"><img src="assets/brands/04-samriddhi-steels.png" alt="Samriddhi Steels logo" loading="lazy"></div>
-          <div class="brand-cell" title="Dynamic Technosoft"><img src="assets/brands/05-dynamic-technosoft.png" alt="Dynamic Technosoft logo" loading="lazy"></div>
-          <div class="brand-cell" title="Safari"><img src="assets/brands/06-safari.png" alt="Safari logo" loading="lazy"></div>
-          <div class="brand-cell has-bg" title="Goodlife"><img src="assets/brands/07-goodlife.png" alt="Goodlife logo" loading="lazy"></div>
-          <div class="brand-cell has-bg" title="Reboost Energy Drink"><img src="assets/brands/08-reboost.png" alt="Reboost Energy Drink logo" loading="lazy"></div>
-          <div class="brand-cell" title="Kantipur Coffee"><img src="assets/brands/09-kantipur-coffee.png" alt="Kantipur Coffee logo" loading="lazy"></div>
-          <div class="brand-cell has-bg" title="Eden"><img src="assets/brands/10-eden.png" alt="Eden logo" loading="lazy"></div>
-          <div class="brand-cell has-bg" title="Saurya"><img src="assets/brands/11-saurya.png" alt="Saurya logo" loading="lazy"></div>
-          <div class="brand-cell" title="Dursikshya"><img src="assets/brands/12-dursikshya.png" alt="Dursikshya logo" loading="lazy"></div>
-          <div class="brand-cell has-bg" title="Okaya Electric Vehicles"><img src="assets/brands/13-okaya.png" alt="Okaya Electric Vehicles logo" loading="lazy"></div>
-          <div class="brand-cell has-bg" title="Asian"><img src="assets/brands/14-asian.png" alt="Asian logo" loading="lazy"></div>
-          <div class="brand-cell" title="Hulas Aluminium"><img src="assets/brands/15-hulas.png" alt="Hulas Aluminium logo" loading="lazy"></div>
-          <div class="brand-cell" title="Pixel"><img src="assets/brands/16-pixel.png" alt="Pixel logo" loading="lazy"></div>
-          <div class="brand-cell" title="Sharda Production"><img src="assets/brands/17-sharda.png" alt="Sharda Production logo" loading="lazy"></div>
-          <div class="brand-cell" title="RTC"><img src="assets/brands/18-rtc.png" alt="RTC logo" loading="lazy"></div>
-          <div class="brand-cell" title="Rojgari"><img src="assets/brands/19-rojgari.png" alt="Rojgari logo" loading="lazy"></div>
-          <div class="brand-cell" title="Bizz Education"><img src="assets/brands/20-bizz-education.png" alt="Bizz Education logo" loading="lazy"></div>
-          <div class="brand-cell has-bg" title="Julie's"><img src="assets/brands/21-julies.png" alt="Julie's logo" loading="lazy"></div>
-          <div class="brand-cell has-bg" title="Brilliant"><img src="assets/brands/22-brilliant.png" alt="Brilliant logo" loading="lazy"></div>
-          <div class="brand-cell has-bg" title="Nepal Center for Political Leadership"><img src="assets/brands/23-ncpl.png" alt="Nepal Center for Political Leadership logo" loading="lazy"></div>
-          <div class="brand-cell has-bg" title="TGND Beats"><img src="assets/brands/24-tgnd-beats.png" alt="TGND Beats logo" loading="lazy"></div>
-          <div class="brand-cell has-bg" title="The Great Nepali Diaspora"><img src="assets/brands/25-great-nepali-diaspora.png" alt="The Great Nepali Diaspora logo" loading="lazy"></div>
+          <div class="brand-cell" title="Bosch"><img src="assets/brands/bosch.png" alt="Bosch logo" loading="lazy"></div>
+          <div class="brand-cell" title="Realme"><img src="assets/brands/realme.png" alt="Realme logo" loading="lazy"></div>
+          <div class="brand-cell" title="Konka"><img src="assets/brands/konka.png" alt="Konka logo" loading="lazy"></div>
+          <div class="brand-cell" title="Chatime"><img src="assets/brands/chatime.png" alt="Chatime logo" loading="lazy"></div>
+          <div class="brand-cell" title="Safari"><img src="assets/brands/safari.jpg" alt="Safari logo" loading="lazy"></div>
+          <div class="brand-cell" title="Asian"><img src="assets/brands/asian.png" alt="Asian logo" loading="lazy"></div>
+          <div class="brand-cell" title="Goodlife"><img src="assets/brands/goodlife.png" alt="Goodlife logo" loading="lazy"></div>
+          <div class="brand-cell" title="Okaya"><img src="assets/brands/okaya.png" alt="Okaya logo" loading="lazy"></div>
+          <div class="brand-cell" title="Reboost Energy Drink"><img src="assets/brands/reboost.png" alt="Reboost Energy Drink logo" loading="lazy"></div>
+          <div class="brand-cell" title="Saurya"><img src="assets/brands/saurya.jpg" alt="Saurya logo" loading="lazy"></div>
+          <div class="brand-cell" title="Julie's"><img src="assets/brands/julies.jpg" alt="Julie's logo" loading="lazy"></div>
+          <div class="brand-cell" title="Samriddhi Steels"><img src="assets/brands/samriddhi-steels.png" alt="Samriddhi Steels logo" loading="lazy"></div>
+          <div class="brand-cell" title="Hulas Aluminium"><img src="assets/brands/hulas.png" alt="Hulas Aluminium logo" loading="lazy"></div>
+          <div class="brand-cell" title="Kantipur Coffee"><img src="assets/brands/kantipur-coffee.png" alt="Kantipur Coffee logo" loading="lazy"></div>
+          <div class="brand-cell" title="Eden"><img src="assets/brands/eden.png" alt="Eden logo" loading="lazy"></div>
+          <div class="brand-cell" title="Pixel"><img src="assets/brands/pixel.png" alt="Pixel logo" loading="lazy"></div>
+          <div class="brand-cell" title="Dynamic Technosoft"><img src="assets/brands/dynamic-technosoft.png" alt="Dynamic Technosoft logo" loading="lazy"></div>
+          <div class="brand-cell" title="Sharda Production"><img src="assets/brands/sharda-production.jpg" alt="Sharda Production logo" loading="lazy"></div>
+          <div class="brand-cell" title="Dursikshya"><img src="assets/brands/dursikshya.png" alt="Dursikshya logo" loading="lazy"></div>
+          <div class="brand-cell" title="Rojgari"><img src="assets/brands/rojgari.png" alt="Rojgari logo" loading="lazy"></div>
+          <div class="brand-cell" title="RTC"><img src="assets/brands/rtc.jpg" alt="RTC logo" loading="lazy"></div>
+          <div class="brand-cell" title="Bizz Education"><img src="assets/brands/bizz-education.png" alt="Bizz Education logo" loading="lazy"></div>
+          <div class="brand-cell" title="TGND Beats"><img src="assets/brands/tgnd-beats.png" alt="TGND Beats logo" loading="lazy"></div>
+          <div class="brand-cell" title="Nepal Center for Political Leadership"><img src="assets/brands/ncpl.png" alt="Nepal Center for Political Leadership logo" loading="lazy"></div>
+          <div class="brand-cell" title="The Great Nepali Diaspora"><img src="assets/brands/great-nepali-diaspora.jpg" alt="The Great Nepali Diaspora logo" loading="lazy"></div>
+          <div class="brand-cell" title="Brilliant"><img src="assets/brands/brilliant.png" alt="Brilliant logo" loading="lazy"></div>
         </div>
       </div>
     </div>
@@ -727,7 +733,8 @@
 
 <div class="theater" id="theater" aria-hidden="true">
   <div class="theater-stage" id="theaterStage">
-    <button class="theater-close" id="theaterClose" type="button" aria-label="Close video">&times;</button>
+    <button class="theater-close" id="theaterClose" type="button" aria-label="Close">&times;</button>
+    <img class="theater-img" id="theaterImg" alt="" hidden>
   </div>
 </div>
 
@@ -739,29 +746,44 @@
   var theater = document.getElementById('theater');
   var stage = document.getElementById('theaterStage');
   var closeBtn = document.getElementById('theaterClose');
+  var theaterImg = document.getElementById('theaterImg');
   var current = null, home = null, nextSib = null;
+  function openStage(){
+    theater.classList.add('open'); theater.setAttribute('aria-hidden','false');
+    document.body.classList.add('theater-lock');
+    closeBtn.focus();
+  }
+  function busy(){ return current || !theaterImg.hasAttribute('hidden'); }
   function openTheater(video){
-    if(current) return;
+    if(busy()) return;
     current = video; home = video.parentNode; nextSib = video.nextSibling;
     stage.insertBefore(video, closeBtn);
     video.controls = true; video.muted = false;
-    theater.classList.add('open'); theater.setAttribute('aria-hidden','false');
-    document.body.classList.add('theater-lock');
+    openStage();
     var p = video.play(); if(p && p.catch) p.catch(function(){});
-    closeBtn.focus();
+  }
+  function openImage(src, alt){
+    if(busy() || !src) return;
+    theaterImg.src = src; theaterImg.alt = alt || '';
+    theaterImg.removeAttribute('hidden');
+    openStage();
   }
   function closeTheater(){
-    if(!current) return;
-    var v = current;
-    v.pause(); v.controls = false;
-    if(home){ home.insertBefore(v, nextSib); }
+    if(current){ var v = current; v.pause(); v.controls = false; if(home){ home.insertBefore(v, nextSib); } current = null; home = null; nextSib = null; }
+    if(!theaterImg.hasAttribute('hidden')){ theaterImg.setAttribute('hidden',''); theaterImg.removeAttribute('src'); theaterImg.alt = ''; }
     theater.classList.remove('open'); theater.setAttribute('aria-hidden','true');
     document.body.classList.remove('theater-lock');
-    current = null; home = null; nextSib = null;
   }
   Array.prototype.forEach.call(document.querySelectorAll('.hl-item.vid'), function(fig){
     var video = fig.querySelector('video');
     function go(e){ e.preventDefault(); openTheater(video); }
+    fig.addEventListener('click', go);
+    fig.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' ') go(e); });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('.hl-item:not(.vid)'), function(fig){
+    var img = fig.querySelector('img');
+    if(!img) return;
+    function go(e){ e.preventDefault(); openImage(img.getAttribute('src'), img.getAttribute('alt')); }
     fig.addEventListener('click', go);
     fig.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' ') go(e); });
   });
