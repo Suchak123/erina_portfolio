@@ -23,6 +23,8 @@
     --gold:#E0602A;
     --teal:#3A5A6E;
     --pink:#FE7743;
+    --plum:#8A4FA3;
+    --emerald:#1F9E7A;
     --logo-panel:#273F4F;
     --shadow:rgba(39,63,79,.16);
     --hero-glow:.5;
@@ -40,6 +42,8 @@
     --gold:#FF9455;
     --teal:#6F97AD;
     --pink:#FF8A5C;
+    --plum:#C58FDB;
+    --emerald:#45C9A0;
     --logo-panel:#0C1720;
     --shadow:rgba(0,0,0,.55);
     --hero-glow:.85;
@@ -81,13 +85,16 @@
     background:color-mix(in srgb,var(--bg) 86%,transparent);
     backdrop-filter:blur(14px);border-bottom:1px solid var(--line-2);
   }
-  .nav-in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:15px;padding-bottom:15px;}
+  .nav-in{display:flex;align-items:center;justify-content:center;gap:20px;padding-top:15px;padding-bottom:15px;position:relative;}
   .brand{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:20px;letter-spacing:-.02em;text-decoration:none;display:flex;align-items:center;gap:9px;}
   .brand .blip{width:12px;height:12px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px color-mix(in srgb,var(--coral) 22%,transparent);}
   .nav-links{display:flex;align-items:center;gap:28px;}
-  .nav-links a{text-decoration:none;font-weight:500;font-size:15px;color:var(--ink-soft);transition:color .18s;}
+  .nav-links a{position:relative;text-decoration:none;font-weight:500;font-size:15px;color:var(--ink-soft);transition:color .2s;}
+  /* underline sweeps in from the left — same for every item */
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-5px;height:2px;width:0;background:var(--coral);transition:width .25s ease;}
   .nav-links a:hover{color:var(--ink);}
-  .nav-right{display:flex;align-items:center;gap:16px;}
+  .nav-links a:hover::after{width:100%;}
+  .nav-right{display:flex;align-items:center;gap:16px;position:absolute;right:clamp(22px,5vw,64px);top:50%;transform:translateY(-50%);}
   .theme-toggle{
     display:inline-flex;align-items:center;gap:8px;cursor:pointer;
     border:1.5px solid var(--line);background:var(--surface);color:var(--ink);
@@ -188,30 +195,33 @@
   .skill-group h4{margin:0 0 16px;font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--c);display:inline-flex;align-items:center;gap:8px;}
   .skill-group h4::before{content:"";width:26px;height:3px;border-radius:3px;background:var(--c);}
   .tags{display:flex;flex-wrap:wrap;gap:8px;}
-  .tags span{font-size:13.5px;font-weight:500;padding:7px 13px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--ink);transition:transform .12s,border-color .2s,color .2s,background .2s;}
-  .tags span:hover{border-color:var(--c);color:var(--c);transform:translateY(-2px);}
+  .tags span{font-size:13.5px;font-weight:500;padding:7px 13px;border-radius:999px;background:color-mix(in srgb,var(--c) 7%,var(--surface));border:1px solid color-mix(in srgb,var(--c) 26%,transparent);color:var(--c);transition:transform .12s,border-color .2s,color .2s,background .2s;}
+  .tags span:hover{border-color:color-mix(in srgb,var(--c) 50%,transparent);background:color-mix(in srgb,var(--c) 12%,var(--surface));transform:translateY(-2px);}
   .tags span.feat{background:color-mix(in srgb,var(--c) 14%,var(--surface));border-color:color-mix(in srgb,var(--c) 42%,transparent);color:var(--c);font-weight:600;}
   .tags span.feat:hover{background:color-mix(in srgb,var(--c) 20%,var(--surface));}
 
   /* ---------- experience ---------- */
-  .exp-list{display:flex;flex-direction:column;gap:20px;}
-  .exp{
-    display:grid;grid-template-columns:210px 1fr;gap:32px;
-    background:color-mix(in srgb,var(--c) 8%,transparent);
-    border:1px solid color-mix(in srgb,var(--c) 22%,transparent);border-radius:24px;
-    padding:clamp(24px,3vw,38px);transition:transform .2s,box-shadow .25s,border-color .25s,background .25s;
-    border-left:5px solid var(--c);
-  }
-  .exp:hover{transform:translateY(-4px);background:color-mix(in srgb,var(--c) 13%,transparent);box-shadow:0 26px 50px -30px var(--shadow);}
-  .exp-when{font-weight:600;font-size:14px;color:var(--c);}
-  .exp-loc{font-size:14px;color:var(--ink-soft);margin-top:6px;}
+  .exp-list{position:relative;display:flex;flex-direction:column;gap:clamp(34px,4vw,52px);padding-left:46px;}
+  /* the timeline spine */
+  .exp-list::before{content:"";position:absolute;left:11px;top:10px;bottom:10px;width:2px;border-radius:2px;background:linear-gradient(var(--coral),var(--violet) 40%,var(--teal) 72%,var(--pink));}
+  .exp{position:relative;transition:transform .2s;}
+  /* node on the spine */
+  .exp::before{content:"";position:absolute;left:-41px;top:4px;width:18px;height:18px;border-radius:50%;background:var(--c);border:4px solid var(--surface-2);box-shadow:0 0 0 2px var(--c);transition:transform .2s,box-shadow .2s;}
+  .exp::after{content:"";position:absolute;left:-28px;top:12px;width:20px;height:2px;background:color-mix(in srgb,var(--c) 45%,transparent);transition:width .2s;}
+  .exp:hover{transform:translateX(4px);}
+  .exp:hover::before{transform:scale(1.22);box-shadow:0 0 0 5px color-mix(in srgb,var(--c) 25%,transparent);}
+  .exp:hover::after{width:26px;}
+  .exp-head{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 12px;margin-bottom:8px;}
+  .exp-when{font-weight:700;font-size:13.5px;letter-spacing:.03em;text-transform:uppercase;color:var(--c);}
+  .exp-loc{font-size:14px;color:var(--ink-soft);}
+  .exp-loc::before{content:"·";margin-right:12px;color:var(--ink-soft);}
   .exp-role{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(21px,2.4vw,27px);letter-spacing:-.02em;line-height:1.1;margin:0;}
   .exp-org{font-size:16px;color:var(--ink-soft);margin:4px 0 16px;}
   .exp-org b{color:var(--ink);font-weight:600;}
   .exp ul{margin:0;padding:0;list-style:none;display:grid;gap:9px;}
   .exp li{position:relative;padding-left:24px;font-size:15.5px;line-height:1.55;color:var(--ink-soft);}
   .exp li::before{content:"";position:absolute;left:2px;top:9px;width:9px;height:9px;border-radius:50%;background:color-mix(in srgb,var(--c) 55%,transparent);}
-  @media(max-width:680px){.exp{grid-template-columns:1fr;gap:16px;}}
+  @media(max-width:680px){.exp-list{padding-left:38px;}.exp::after{display:none;}}
 
   /* ---------- work ---------- */
   .work-list{display:flex;flex-direction:column;gap:clamp(28px,4vw,52px);}
@@ -246,7 +256,7 @@
   @media(max-width:780px){.work-media{align-self:auto;}}
   /* Yirifi metric board */
   .metric-board{grid-area:media;background:var(--c);display:grid;grid-template-columns:1fr 1fr;color:#fff;}
-  .metric-board .m{padding:clamp(20px,2.6vw,34px);border-right:1px solid rgba(255,255,255,.16);border-bottom:1px solid rgba(255,255,255,.16);}
+  .metric-board .m{padding:clamp(20px,2.6vw,34px);border-right:1px solid rgba(255,255,255,.16);border-bottom:1px solid rgba(255,255,255,.16);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
   .metric-board .m:nth-child(2n){border-right:0;}
   .metric-board .m:nth-child(n+3){border-bottom:0;}
   .metric-board .m b{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(26px,3vw,40px);letter-spacing:-.02em;display:block;line-height:1;}
@@ -344,7 +354,7 @@
   @media(max-width:820px){.cta-in{grid-template-columns:1fr;}.cta-photo{max-width:300px;}}
 
   /* ---------- footer ---------- */
-  footer.foot{padding-top:44px;padding-bottom:60px;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;color:var(--ink-soft);font-size:14px;}
+  footer.foot{padding-top:44px;padding-bottom:60px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center;color:var(--ink-soft);font-size:14px;}
   footer.foot .brand{font-size:17px;color:var(--ink);}
 
   /* ---------- reveal ---------- */
@@ -374,7 +384,6 @@
 <!-- ===== nav ===== -->
 <header class="nav">
   <div class="wrap nav-in">
-    <a class="brand" href="#top"><span class="blip"></span>Erina Gautam</a>
     <nav class="nav-links">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
@@ -458,11 +467,11 @@
           <h4>Brand &amp; Content</h4>
           <div class="tags"><span class="feat">Social media strategy &amp; management</span><span class="feat">Brand positioning</span><span class="feat">Content strategy</span><span class="feat">Editorial planning</span><span>Omnichannel marketing</span><span>Campaign management</span></div>
         </div>
-        <div class="skill-group reveal" style="--c:var(--violet)">
+        <div class="skill-group reveal" style="--c:var(--plum)">
           <h4>SEO &amp; Growth</h4>
           <div class="tags"><span class="feat">SEO strategy</span><span class="feat">Keyword research</span><span>Technical SEO</span><span>SERP analysis</span><span>On-page optimization</span><span>Organic growth</span><span>SEO analytics</span></div>
         </div>
-        <div class="skill-group reveal" style="--c:var(--teal)">
+        <div class="skill-group reveal" style="--c:var(--emerald)">
           <h4>Analytics &amp; Tools</h4>
           <div class="tags"><span>KPI tracking</span><span>ROI analysis</span><span>Search Console</span><span>Google Analytics</span><span>Zoho Social</span><span>Canva</span><span>Notion</span><span>Descript</span><span>ElevenLabs</span><span>Claude Code</span><span>AI workflow automation</span><span>Prompt engineering</span></div>
         </div>
@@ -479,7 +488,7 @@
       </div>
       <div class="exp-list">
         <article class="exp reveal" style="--c:var(--coral)">
-          <div><div class="exp-when">Mar 2025 — Feb 2026</div><div class="exp-loc">Singapore · Remote</div></div>
+          <div class="exp-head"><span class="exp-when">Mar 2025 — Feb 2026</span><span class="exp-loc">Singapore · Remote</span></div>
           <div>
             <h3 class="exp-role">SEO &amp; Content Strategist</h3>
             <p class="exp-org"><b>Yirifi.ai</b> — fully self-directed</p>
@@ -491,7 +500,7 @@
           </div>
         </article>
         <article class="exp reveal" style="--c:var(--violet)">
-          <div><div class="exp-when">2023 — 2025</div><div class="exp-loc">Lalitpur</div></div>
+          <div class="exp-head"><span class="exp-when">2023 — 2025</span><span class="exp-loc">Lalitpur</span></div>
           <div>
             <h3 class="exp-role">Content &amp; Communication Lead</h3>
             <p class="exp-org"><b>Pixel Creatives</b> — 25+ client brands · grew from Social Media Executive</p>
@@ -504,7 +513,7 @@
           </div>
         </article>
         <article class="exp reveal" style="--c:var(--teal)">
-          <div><div class="exp-when">2022 — 2023</div><div class="exp-loc">Kathmandu</div></div>
+          <div class="exp-head"><span class="exp-when">2022 — 2023</span><span class="exp-loc">Kathmandu</span></div>
           <div>
             <h3 class="exp-role">Brand &amp; Communication Officer</h3>
             <p class="exp-org"><b>Dynamic Technosoft</b> — full-funnel comms</p>
@@ -516,7 +525,7 @@
           </div>
         </article>
         <article class="exp reveal" style="--c:var(--pink)">
-          <div><div class="exp-when">Jul 2022 — Sep 2022</div><div class="exp-loc">Kathmandu</div></div>
+          <div class="exp-head"><span class="exp-when">Jul 2022 — Sep 2022</span><span class="exp-loc">Kathmandu</span></div>
           <div>
             <h3 class="exp-role">Admissions Intern</h3>
             <p class="exp-org"><b>Presidential Graduate School</b> — where it started</p>
@@ -724,9 +733,7 @@
   </section>
 
   <footer class="wrap foot">
-    <span class="brand"><span class="blip"></span>Erina Gautam</span>
-    <span>Content &amp; Brand Strategist · Kathmandu, Nepal</span>
-    <span>© 2026</span>
+    <span>© 2026 · All rights reserved</span>
   </footer>
 
 </main>
